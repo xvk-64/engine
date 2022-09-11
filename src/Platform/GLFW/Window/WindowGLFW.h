@@ -15,6 +15,8 @@ namespace Engine::Platform::GLFW {
 	public:
 		explicit WindowGLFW(const WindowConfig& config);
 
+		void Clear() override;
+
 	private:
 		GLFWwindow* windowHandle = nullptr;
 	};

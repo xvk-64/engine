@@ -16,7 +16,7 @@ namespace Engine::Core {
 
 
 	private:
-		std::unique_ptr<Platform::Platform> platform;
+		std::unique_ptr<Platform::Platform> m_platform;
 	};
 
 }

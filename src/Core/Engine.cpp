@@ -8,7 +8,7 @@
 namespace Engine::Core {
 
 	Engine::Engine(const EngineConfig& config) {
-		platform = std::make_unique<Platform::GLFW::PlatformGLFW>(config.windowConfig);
+		m_platform = Platform::Platform::Create();
 	}
 
 }

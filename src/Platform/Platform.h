@@ -14,7 +14,9 @@ namespace Engine::Platform {
 	public:
 		virtual const Window& GetWindow() = 0;
 
-		virtual ~Platform() = 0;
+		virtual ~Platform() = default;
+
+		static std::unique_ptr<Platform> Create();
 	};
 
 }

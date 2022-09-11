@@ -16,6 +16,7 @@ namespace Engine::Platform {
 	};
 
 	class Window {
+	public:
 		virtual void Clear() = 0;
 	};
 
