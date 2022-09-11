@@ -6,16 +6,17 @@
 #define ENGINE_WINDOW_H
 
 #include <string>
+#include "glm/glm.hpp"
 
-namespace Engine::Platform::Window {
+namespace Engine::Platform {
 
 	struct WindowConfig {
 		std::string windowTitle;
-
+		glm::ivec2 windowSize;
 	};
 
 	class Window {
-
+		virtual void Clear() = 0;
 	};
 
 }
