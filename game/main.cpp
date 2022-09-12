@@ -1,5 +1,0 @@
-#include ""
-
-int main() {
-	hello();
-}

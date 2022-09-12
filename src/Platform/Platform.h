@@ -16,7 +16,7 @@ namespace Engine::Platform {
 
 		virtual ~Platform() = default;
 
-		static std::unique_ptr<Platform> Create();
+		static std::unique_ptr<Platform> Create(const WindowConfig& windowConfig);
 	};
 
 }
