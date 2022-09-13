@@ -6,8 +6,8 @@
 
 namespace Engine::Platform::GLFW {
 
-	const Window& PlatformGLFW::GetWindow() {
-		return window;
+	Core::Window& PlatformGLFW::GetWindow() {
+		return m_window;
 	}
 
 }

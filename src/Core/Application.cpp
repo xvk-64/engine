@@ -16,6 +16,8 @@ namespace Engine::Core {
 	}
 
 	void Application::Run() {
-		std::cout << "Hello, world!" << std::endl;
+		while (m_running) {
+			m_platform->GetWindow().OnUpdate();
+		}
 	}
 }

@@ -1,15 +1,15 @@
 #ifndef ENGINE_APPLICATION_H
 #define ENGINE_APPLICATION_H
 
-#include "Platform/Window/Window.h"
-#include "Platform/Platform.h"
+#include "Window.h"
+#include "Platform.h"
 
 int main();
 
 namespace Engine::Core {
 
 	struct ApplicationConfig {
-		Platform::WindowConfig windowConfig;
+		WindowConfig windowConfig;
 	};
 
 	class Application {
@@ -21,7 +21,8 @@ namespace Engine::Core {
 	private:
 		void Run();
 
-		std::unique_ptr<Platform::Platform> m_platform;
+		std::unique_ptr<Platform> m_platform;
+		bool m_running = true;
 
 		friend int ::main();
 	};

@@ -3,4 +3,7 @@ target_sources(engine
         Application.cpp
         Application.h
         EntryPoint.h
+        Platform.cpp
+        Platform.h
+        Window.h
         )

@@ -7,18 +7,35 @@
 
 #include <GLFW/glfw3.h>
 #include <memory>
-#include "Platform/Window/Window.h"
+#include "Core/Window.h"
 
 namespace Engine::Platform::GLFW {
 
-	class WindowGLFW : public Window {
+	class WindowGLFW : public Core::Window {
 	public:
-		explicit WindowGLFW(const WindowConfig& config);
+		explicit WindowGLFW(const Core::WindowConfig& config);
+
+		~WindowGLFW();
 
 		void Clear() override;
 
+		void OnUpdate() override;
+
+		void SetVSync(bool enabled) override {
+			m_windowData.VSync = enabled;
+			glfwSwapInterval(enabled);
+		}
+		bool GetVSync() override { return m_windowData.VSync; }
+
 	private:
-		GLFWwindow* windowHandle = nullptr;
+		GLFWwindow* m_windowHandle = nullptr;
+
+		struct WindowData {
+			std::string Title;
+			Core::WindowConfig::WindowSize Size;
+			bool VSync;
+
+		} m_windowData;
 	};
 
 }

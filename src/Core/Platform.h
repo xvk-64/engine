@@ -6,15 +6,18 @@
 #define ENGINE_PLATFORM_H
 
 #include <memory>
-#include "Platform/Window/Window.h"
+#include "Window.h"
 
-namespace Engine::Platform {
+namespace Engine::Core {
 
 	class Platform {
 	public:
-		virtual const Window& GetWindow() = 0;
+		virtual Window& GetWindow() = 0;
 
 		virtual ~Platform() = default;
+
+		void OnUpdate();
+
 
 		static std::unique_ptr<Platform> Create(const WindowConfig& windowConfig);
 	};

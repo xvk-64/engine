@@ -5,19 +5,19 @@
 #ifndef ENGINE_PLATFORMGLFW_H
 #define ENGINE_PLATFORMGLFW_H
 
-#include "Platform/Platform.h"
-#include "Platform/GLFW/Window/WindowGLFW.h"
+#include "Core/Platform.h"
+#include "Window/WindowGLFW.h"
 
 namespace Engine::Platform::GLFW {
 
-	class PlatformGLFW : public Platform {
+class PlatformGLFW : public Core::Platform {
 	public:
-		explicit PlatformGLFW(const WindowConfig& windowConfig) : window(windowConfig) {}
+		explicit PlatformGLFW(const Core::WindowConfig& windowConfig) : m_window(windowConfig) {}
 
-		const Window& GetWindow() override;
+		Core::Window& GetWindow() override;
 
 	private:
-		WindowGLFW window;
+		WindowGLFW m_window;
 	};
 
 }

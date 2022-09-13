@@ -8,12 +8,8 @@ public:
 };
 
 std::unique_ptr<Engine::Core::Application> Engine::Core::CreateApplication() {
-	ApplicationConfig config {
-		.windowConfig = {
-			.windowTitle = "Sandbox",
-			.windowSize = glm::ivec2(640, 480),
-		}
-	};
+	ApplicationConfig config;
+	config.windowConfig.Title = "Sandbox App";
 
 	return std::make_unique<Engine::Core::Application>(config);
 }
