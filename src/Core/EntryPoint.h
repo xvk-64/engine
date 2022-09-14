@@ -5,15 +5,30 @@
 #ifndef ENGINE_ENTRYPOINT_H
 #define ENGINE_ENTRYPOINT_H
 
+#include <iostream>
 #include "Application.h"
 
 namespace Engine::Core {
 // Defined in client.
 	extern std::unique_ptr<Engine::Core::Application> CreateApplication();
 }
-
+void printstr(int num) {
+	std::cout << num;
+}
+void printstr1(int num) {
+	std::cout << num;
+}
 int main() {
 	auto application = Engine::Core::CreateApplication();
+
+	Engine::Core::Event<int> evnt;
+
+	evnt.AddListener(printstr);
+	evnt.AddListener(printstr1);
+
+	evnt.RemoveListener(printstr1);
+
+	evnt.Invoke(8);
 
 	application->Run();
 

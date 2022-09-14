@@ -3,6 +3,7 @@
 
 #include "Window.h"
 #include "Platform.h"
+#include "Event.h"
 
 int main();
 

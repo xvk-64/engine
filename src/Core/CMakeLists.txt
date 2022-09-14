@@ -2,8 +2,13 @@ target_sources(engine
         PRIVATE
         Application.cpp
         Application.h
+
         EntryPoint.h
+
         Platform.cpp
         Platform.h
+
         Window.h
+
+        Event.h
         )
