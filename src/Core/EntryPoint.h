@@ -13,20 +13,18 @@ namespace Engine::Core {
 	extern std::unique_ptr<Engine::Core::Application> CreateApplication();
 }
 void printstr(int num) {
-	std::cout << num;
+	std::cout << num << std::endl;
 }
 void printstr1(int num) {
-	std::cout << num;
+	std::cout << num << std::endl;
 }
 int main() {
 	auto application = Engine::Core::CreateApplication();
 
 	Engine::Core::Event<int> evnt;
 
-	evnt.AddListener(printstr);
-	evnt.AddListener(printstr1);
-
-	evnt.RemoveListener(printstr1);
+	auto listener = evnt.AddListener(printstr);
+	auto li = evnt.AddListener(printstr1);
 
 	evnt.Invoke(8);
 

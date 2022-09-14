@@ -3,44 +3,46 @@
 #include <functional>
 #include <set>
 #include <unordered_set>
+#include <utility>
 
 namespace Engine::Core {
 
 	template<typename T>
 	class Event {
 	public:
-		void AddListener(std::function<void(T)> const& delegate) {
-			for (const auto& listener : m_listeners)
-				if (CompareDelegates(delegate, listener.delegate))
-					return;
-
-			m_listeners.push_back({.delegate=delegate});
-		}
-
-		void RemoveListener(std::function<void(T)> const& delegate) {
-			for (int i = m_listeners.size() - 1; i--; i >= 0) {
-				if (CompareDelegates(delegate, m_listeners[i].delegate))
-					m_listeners.erase(std::next(m_listeners.begin(), i));
+		class Listener {
+		friend class Event<T>;
+		public:
+			explicit Listener(std::function<void(T)> delegate, std::function<void(void)> cleanup)
+				: m_delegate(delegate), m_cleanup(std::move(cleanup)) {}
+			~Listener() {
+				m_cleanup();
 			}
+
+		private:
+			std::function<void(T)> m_delegate;
+			std::function<void(void)> m_cleanup;
 		};
+
+		Listener AddListener(std::function<void(T)> const& delegate) {
+			auto delegatePtr = std::make_shared<std::function<void(T)>>(delegate);
+			m_listeners.insert(delegatePtr);
+
+			Listener listener{delegate, [this, delegatePtr](){RemoveListener(delegatePtr);}};
+
+			return listener;
+		}
 
 		void Invoke(T data) {
 			for (auto& listener: m_listeners)
-				listener.delegate(data);
+				(*listener)(data);
 		};
 
 	private:
-		struct Listener {
-			const std::function<void(T)> delegate;
-		};
-
-		bool CompareDelegates(std::function<void(T)> delegate1, std::function<void(T)> delegate2) {
-			auto ptr1 = delegate1.template target<void(*)(T)>();
-			auto ptr2 = delegate2.template target<void(*)(T)>();
-
-			return ptr1 == ptr2;
+		void RemoveListener(std::shared_ptr<std::function<void(T)>> listener) {
+			m_listeners.erase(listener);
 		}
 
-		std::vector<Listener> m_listeners;
+		std::set<std::shared_ptr<std::function<void(T)>>> m_listeners;
 	};
 }
