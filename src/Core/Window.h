@@ -7,6 +7,7 @@
 
 #include <string>
 #include "glm/glm.hpp"
+#include "Event.h"
 
 namespace Engine::Core {
 
@@ -14,8 +15,8 @@ namespace Engine::Core {
 		std::string Title;
 
 		struct WindowSize {
-			unsigned int Width = 1280;
-			unsigned int Height = 720;
+			int Width = 1280;
+			int Height = 720;
 		} Size;
 	};
 
@@ -26,6 +27,9 @@ namespace Engine::Core {
 
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool GetVSync() = 0;
+
+		Event<WindowConfig::WindowSize> WindowResizeEvent;
+		Event<> WindowCloseEvent;
 	};
 
 }

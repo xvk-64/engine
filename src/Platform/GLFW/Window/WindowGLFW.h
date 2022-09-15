@@ -13,9 +13,10 @@ namespace Engine::Platform::GLFW {
 
 	class WindowGLFW : public Core::Window {
 	public:
-		explicit WindowGLFW(const Core::WindowConfig& config);
-
+		explicit WindowGLFW() = default;
 		~WindowGLFW();
+
+		void Init(GLFWwindow* windowHandle, const Core::WindowConfig& config);
 
 		void Clear() override;
 

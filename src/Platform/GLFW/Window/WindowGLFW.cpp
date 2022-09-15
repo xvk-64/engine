@@ -2,29 +2,27 @@
 // Created by valen on 11/09/2022.
 //
 
+#include <iostream>
 #include "WindowGLFW.h"
 
 namespace Engine::Platform::GLFW {
 
-	WindowGLFW::WindowGLFW(const Core::WindowConfig& config) {
-		glfwInit();
-		// Set GLFW version 3.3
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	void WindowGLFW::Init(GLFWwindow* windowHandle, const Core::WindowConfig& config) {
+		m_windowHandle = windowHandle;
+		m_windowData.Title = config.Title;
+		m_windowData.Size = config.Size;
 
-		m_windowHandle = glfwCreateWindow(config.Size.Width, config.Size.Height, config.Title.c_str(), nullptr, nullptr);
+		glfwMakeContextCurrent(windowHandle);
+		WindowGLFW::SetVSync(true);
 
-		if (m_windowHandle == nullptr) {
-			// Failed to create window!
+		// Set callbacks
+		glfwSetWindowSizeCallback(m_windowHandle, [](GLFWwindow* window, int width, int height) {
+			static_cast<WindowGLFW*>(glfwGetWindowUserPointer(window))->WindowResizeEvent.Invoke({.Width=width, .Height=height});
+		});
 
-			glfwTerminate();
-
-			throw std::runtime_error("Couldn't create GLFW window.");
-		}
-
-		glfwMakeContextCurrent(m_windowHandle);
-		glfwSetWindowUserPointer(m_windowHandle, &m_windowData);
+		glfwSetWindowCloseCallback(m_windowHandle, [](GLFWwindow* window) {
+			static_cast<WindowGLFW*>(glfwGetWindowUserPointer(window))->WindowCloseEvent.Invoke();
+		});
 	}
 
 	void WindowGLFW::Clear() {

@@ -12,7 +12,7 @@ namespace Engine::Platform::GLFW {
 
 class PlatformGLFW : public Core::Platform {
 	public:
-		explicit PlatformGLFW(const Core::WindowConfig& windowConfig) : m_window(windowConfig) {}
+		explicit PlatformGLFW(const Core::WindowConfig& windowConfig);
 
 		Core::Window& GetWindow() override;
 
