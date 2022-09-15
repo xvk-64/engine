@@ -9,6 +9,8 @@ namespace Engine::Core {
 
 	Application::Application(const ApplicationConfig& config) {
 		m_platform = Platform::Platform::Create(config.windowConfig);
+
+		m_platform->GetWindow().WindowCloseEvent.AddHandler(m_handleOnWindowClose);
 	}
 
 	Application::~Application() {

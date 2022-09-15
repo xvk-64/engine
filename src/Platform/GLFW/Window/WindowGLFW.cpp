@@ -17,11 +17,17 @@ namespace Engine::Platform::GLFW {
 
 		// Set callbacks
 		glfwSetWindowSizeCallback(m_windowHandle, [](GLFWwindow* window, int width, int height) {
-			static_cast<WindowGLFW*>(glfwGetWindowUserPointer(window))->WindowResizeEvent.Invoke({.Width=width, .Height=height});
+			auto& windowGLFW = *static_cast<WindowGLFW*>(glfwGetWindowUserPointer(window));
+
+			windowGLFW.m_windowData.Size = {.Width=width, .Height = height};
+
+			windowGLFW.WindowResizeEvent.Invoke(windowGLFW.m_windowData.Size);
 		});
 
 		glfwSetWindowCloseCallback(m_windowHandle, [](GLFWwindow* window) {
-			static_cast<WindowGLFW*>(glfwGetWindowUserPointer(window))->WindowCloseEvent.Invoke();
+			auto& windowGLFW = *static_cast<WindowGLFW*>(glfwGetWindowUserPointer(window));
+
+			windowGLFW.WindowCloseEvent.Invoke();
 		});
 	}
 

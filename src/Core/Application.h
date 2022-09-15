@@ -26,6 +26,9 @@ namespace Engine::Core {
 		bool m_running = true;
 
 		friend int ::main();
+
+		void OnWindowClose() {m_running = false;}
+		EventHandler<> m_handleOnWindowClose{[this]() {this->OnWindowClose();}};
 	};
 }
 
