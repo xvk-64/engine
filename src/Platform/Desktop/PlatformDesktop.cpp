@@ -2,17 +2,17 @@
 // Created by valen on 11/09/2022.
 //
 
-#include "PlatformGLFW.h"
+#include "PlatformDesktop.h"
 
 namespace Engine::Platform::GLFW {
 
-	Core::Window& PlatformGLFW::GetWindow() {
+	Core::Window& PlatformDesktop::GetWindow() {
 		return m_window;
 	}
 
-	PlatformGLFW::PlatformGLFW(const Core::WindowConfig& windowConfig) {
+	PlatformDesktop::PlatformDesktop(const Core::WindowConfig& windowConfig) {
 		glfwInit();
-		// Set GLFW version 3.3
+		// Set Desktop version 3.3
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -24,7 +24,7 @@ namespace Engine::Platform::GLFW {
 
 			glfwTerminate();
 
-			throw std::runtime_error("Couldn't create GLFW window.");
+			throw std::runtime_error("Couldn't create Desktop window.");
 		}
 
 		glfwSetWindowUserPointer(windowHandle, &m_window);

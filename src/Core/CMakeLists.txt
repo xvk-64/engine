@@ -12,4 +12,7 @@ target_sources(engine
 
         Event.h
         Event.cpp
+
+        Log.h
+        Log.cpp
         )

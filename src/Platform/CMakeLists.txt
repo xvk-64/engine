@@ -1,1 +1,1 @@
-add_subdirectory(GLFW)
+add_subdirectory(Desktop)

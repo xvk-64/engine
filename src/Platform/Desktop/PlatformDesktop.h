@@ -2,17 +2,17 @@
 // Created by valen on 11/09/2022.
 //
 
-#ifndef ENGINE_PLATFORMGLFW_H
-#define ENGINE_PLATFORMGLFW_H
+#ifndef ENGINE_PLATFORMDESKTOP_H
+#define ENGINE_PLATFORMDESKTOP_H
 
 #include "Core/Platform.h"
 #include "Window/WindowGLFW.h"
 
 namespace Engine::Platform::GLFW {
 
-class PlatformGLFW : public Core::Platform {
+class PlatformDesktop : public Core::Platform {
 	public:
-		explicit PlatformGLFW(const Core::WindowConfig& windowConfig);
+		explicit PlatformDesktop(const Core::WindowConfig& windowConfig);
 
 		Core::Window& GetWindow() override;
 
@@ -23,4 +23,4 @@ class PlatformGLFW : public Core::Platform {
 }
 
 
-#endif //ENGINE_PLATFORMGLFW_H
+#endif //ENGINE_PLATFORMDESKTOP_H

@@ -1,7 +1,7 @@
 target_sources(engine
     PUBLIC
-        PlatformGLFW.cpp
-        PlatformGLFW.h
+        PlatformDesktop.cpp
+        PlatformDesktop.h
 )
 
 add_subdirectory(Window)
