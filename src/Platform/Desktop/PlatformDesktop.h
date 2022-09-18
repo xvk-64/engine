@@ -6,9 +6,10 @@
 #define ENGINE_PLATFORMDESKTOP_H
 
 #include "Core/Platform.h"
-#include "Window/WindowGLFW.h"
+#include "WindowGLFW.h"
+#include "GLFW/glfw3.h"
 
-namespace Engine::Platform::GLFW {
+namespace Engine::Platform {
 
 class PlatformDesktop : public Core::Platform {
 	public:

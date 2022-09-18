@@ -6,4 +6,5 @@ set(CMAKE_CXX_STANDARD 20)
 add_library(engine "")
 
 add_subdirectory(src)
+add_subdirectory(vendor)
 add_subdirectory(sandbox)

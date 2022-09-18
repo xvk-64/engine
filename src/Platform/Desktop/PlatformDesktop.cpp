@@ -4,7 +4,7 @@
 
 #include "PlatformDesktop.h"
 
-namespace Engine::Platform::GLFW {
+namespace Engine::Platform {
 
 	Core::Window& PlatformDesktop::GetWindow() {
 		return m_window;

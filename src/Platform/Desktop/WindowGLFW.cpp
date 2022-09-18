@@ -5,7 +5,7 @@
 #include <iostream>
 #include "WindowGLFW.h"
 
-namespace Engine::Platform::GLFW {
+namespace Engine::Platform {
 
 	void WindowGLFW::Init(GLFWwindow* windowHandle, const Core::WindowConfig& config) {
 		m_windowHandle = windowHandle;

@@ -9,7 +9,7 @@
 #include <memory>
 #include "Core/Window.h"
 
-namespace Engine::Platform::GLFW {
+namespace Engine::Platform {
 
 	class WindowGLFW : public Core::Window {
 	public:
