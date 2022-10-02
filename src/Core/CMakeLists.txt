@@ -1,7 +1,9 @@
 target_sources(engine
         PRIVATE
-        Application.cpp
-        Application.h
+        Engine.h
+        Engine.cpp
+
+        Game.h
 
         EntryPoint.h
 
@@ -9,10 +11,4 @@ target_sources(engine
         Platform.h
 
         Window.h
-
-        Event.h
-        Event.cpp
-
-        Log.h
-        Log.cpp
-        )
+    )

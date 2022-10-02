@@ -1,10 +1,13 @@
 target_sources(engine
-    PUBLIC
-        PlatformDesktop.cpp
+    PRIVATE
         PlatformDesktop.h
+        PlatformDesktop.cpp
 
-        WindowGLFW.h
-        WindowGLFW.cpp
+        WindowDesktop.h
+        WindowDesktop.cpp
+
+        InputDesktop.h
+        InputDesktop.cpp
 )
 
 find_package(GLFW3 REQUIRED)

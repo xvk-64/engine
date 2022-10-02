@@ -1,28 +1,25 @@
-//
-// Created by valen on 11/09/2022.
-//
-
-#ifndef ENGINE_PLATFORM_H
-#define ENGINE_PLATFORM_H
+#pragma once
 
 #include <memory>
 #include "Window.h"
+#include "Input/Input.h"
+#include "Utils/Singleton.hpp"
 
-namespace Engine::Core {
+namespace Engine {
 
 	class Platform {
 	public:
-		virtual Window& GetWindow() = 0;
+		struct PlatformConfig {
+			WindowConfig windowConfig;
+		};
 
 		virtual ~Platform() = default;
 
-		void OnUpdate();
 
+		// Defined in implementation-specific platform
+		static std::unique_ptr<Platform> Create(const PlatformConfig& config);
 
-		static std::unique_ptr<Platform> Create(const WindowConfig& windowConfig);
+		virtual Window& GetCurrentWindow() = 0;
+//		virtual Input& GetInput() = 0;
 	};
-
 }
-
-
-#endif //ENGINE_PLATFORM_H

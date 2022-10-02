@@ -1,15 +1,18 @@
 #include "Core/EntryPoint.h"
 
-class Sandbox : public Engine::Core::Application {
+class Sandbox : public Engine::Game {
 public:
-	explicit Sandbox(const Engine::Core::ApplicationConfig& config) : Engine::Core::Application(config) {
-
+	Sandbox() {
+		Engine::Engine::Get().GetWindow().windowCloseEvent.AddHandler(handleWindowClose);
 	}
+
+private:
+	void OnWindowClose() {
+		OnQuit.Invoke();
+	}
+	Engine::EventHandler<> handleWindowClose{[this](){this->OnWindowClose();}};
 };
 
-std::unique_ptr<Engine::Core::Application> Engine::Core::CreateApplication() {
-	ApplicationConfig config;
-	config.windowConfig.Title = "Sandbox App";
-
-	return std::make_unique<Engine::Core::Application>(config);
+std::unique_ptr<Engine::Game> Engine::Engine::CreateGame() {
+	return std::make_unique<Sandbox>();
 }

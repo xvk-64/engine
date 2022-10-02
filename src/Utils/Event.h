@@ -5,7 +5,7 @@
 #include <unordered_set>
 #include <utility>
 
-namespace Engine::Core {
+namespace Engine {
 
 	template<typename... Args>
 	class Event;

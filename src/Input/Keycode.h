@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Engine::Input {
+namespace Engine {
 	enum Keycode {
 		// From glfw3.h
 		Space               = 32,

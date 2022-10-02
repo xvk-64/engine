@@ -1,27 +1,23 @@
-//
-// Created by valen on 11/09/2022.
-//
-
-#ifndef ENGINE_PLATFORMDESKTOP_H
-#define ENGINE_PLATFORMDESKTOP_H
+#pragma once
 
 #include "Core/Platform.h"
-#include "WindowGLFW.h"
+#include "WindowDesktop.h"
 #include "GLFW/glfw3.h"
 
-namespace Engine::Platform {
+namespace Engine {
 
-class PlatformDesktop : public Core::Platform {
-	public:
-		explicit PlatformDesktop(const Core::WindowConfig& windowConfig);
+class PlatformDesktop : public Platform {
+public:
+	explicit PlatformDesktop(const PlatformConfig& config) : m_window(config.windowConfig) {}
 
-		Core::Window& GetWindow() override;
+	Window& GetCurrentWindow() override;
 
-	private:
-		WindowGLFW m_window;
+//	Input& GetInput() override;
+
+private:
+		WindowDesktop m_window;
+
+
 	};
 
 }
-
-
-#endif //ENGINE_PLATFORMDESKTOP_H
