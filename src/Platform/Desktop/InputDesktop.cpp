@@ -1,11 +1,11 @@
 #include "InputDesktop.h"
 #include "WindowDesktop.h"
-#include "Core/Engine.h"
+#include "Core/Application.h"
 
 namespace Engine {
 
 	bool InputDesktop::GetKey(Keycode keycode) {
-		auto& window = dynamic_cast<WindowDesktop&>(Engine::Get().GetWindow());
+		auto& window = dynamic_cast<WindowDesktop&>(Application::Get().GetWindow());
 
 		return glfwGetKey(window.GetWindowHandle(), keycode) == GLFW_PRESS;
 	}

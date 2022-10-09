@@ -8,7 +8,7 @@ namespace Engine {
 
 	class WindowDesktop : public Window {
 	public:
-		WindowDesktop(const WindowConfig& config);
+		WindowDesktop(const std::string& title, const WindowConfig& config);
 
 		// Copy and move
 		WindowDesktop(WindowDesktop& other) = delete;

@@ -17,7 +17,7 @@ namespace Engine {
 
 
 		// Defined in implementation-specific platform
-		static std::unique_ptr<Platform> Create(const PlatformConfig& config);
+		static std::unique_ptr<Platform> Create(const std::string& title, const PlatformConfig& config);
 
 		virtual Window& GetCurrentWindow() = 0;
 //		virtual Input& GetInput() = 0;

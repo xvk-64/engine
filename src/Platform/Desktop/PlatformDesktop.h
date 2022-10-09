@@ -8,7 +8,7 @@ namespace Engine {
 
 class PlatformDesktop : public Platform {
 public:
-	explicit PlatformDesktop(const PlatformConfig& config) : m_window(config.windowConfig) {}
+	explicit PlatformDesktop(const std::string& title, const PlatformConfig& config) : m_window(title, config.windowConfig) {}
 
 	Window& GetCurrentWindow() override;
 

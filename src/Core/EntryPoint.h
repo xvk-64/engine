@@ -2,15 +2,12 @@
 
 #include <iostream>
 #include <memory>
-#include "Game.h"
-#include "Engine.h"
+#include "Application.h"
 
 int main() {
-	Engine::Engine engine;
-	{
-		auto game = Engine::Engine::CreateGame();
+	auto application = Engine::Application::CreateApplication();
 
-		engine.Run(*game);
-	} // Ensure engine outlives game
+	application->Run();
+
 	return 0;
 }

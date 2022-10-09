@@ -12,12 +12,14 @@ namespace Engine {
 			int height;
 		};
 
-		std::string title;
 		WindowSize size{1280, 720};
 	};
 
 	class Window {
 	public:
+		virtual ~Window() = default;
+
+
 		virtual void Clear() = 0;
 		// Per frame update
 		virtual void Update() = 0;

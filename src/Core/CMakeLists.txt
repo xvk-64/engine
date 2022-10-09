@@ -1,9 +1,7 @@
 target_sources(engine
         PRIVATE
-        Engine.h
-        Engine.cpp
-
-        Game.h
+        Application.h
+        Application.cpp
 
         EntryPoint.h
 

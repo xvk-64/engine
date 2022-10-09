@@ -6,8 +6,8 @@
 
 namespace Engine {
 
-	std::unique_ptr<Platform> Platform::Create(const Platform::PlatformConfig& config) {
-		return std::make_unique<PlatformDesktop>(config);
+	std::unique_ptr<Platform> Platform::Create(const std::string& title, const Platform::PlatformConfig& config) {
+		return std::make_unique<PlatformDesktop>(title, config);
 	}
 
 	Window& PlatformDesktop::GetCurrentWindow() {
