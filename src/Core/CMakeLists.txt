@@ -9,4 +9,7 @@ target_sources(engine
         Platform.h
 
         Window.h
+
+        World.h
+        World.cpp
     )
