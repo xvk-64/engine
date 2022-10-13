@@ -25,6 +25,8 @@ namespace Engine {
 		m_platform->GetCurrentWindow().windowCloseEvent.AddHandler(onQuitHandler);
 
 		while (!m_shouldQuit) {
+			m_world.Update();
+
 			m_platform->GetCurrentWindow().Update();
 		}
 	}
