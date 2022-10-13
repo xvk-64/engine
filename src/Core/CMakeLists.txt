@@ -12,4 +12,7 @@ target_sources(engine
 
         World.h
         World.cpp
+
+        Scene.h
+        Scene.cpp
     )

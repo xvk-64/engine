@@ -3,6 +3,7 @@
 #include <concepts>
 #include <memory>
 #include "Platform.h"
+#include "World.h"
 
 int main();
 
@@ -39,6 +40,7 @@ namespace Engine {
 
 		const ApplicationConfig& m_config;
 		std::unique_ptr<Platform> m_platform;
+		World m_world;
 		bool m_shouldQuit = false;
 
 

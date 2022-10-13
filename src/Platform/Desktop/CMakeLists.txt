@@ -10,7 +10,6 @@ target_sources(engine
         InputDesktop.cpp
 )
 
-find_package(PkgConfig REQUIRED)
-pkg_search_module(GLFW REQUIRED glfw3)
+find_package(glfw3 REQUIRED)
 
 target_link_libraries(engine PRIVATE glfw)
