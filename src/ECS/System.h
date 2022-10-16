@@ -6,15 +6,12 @@ namespace Engine {
 
 	class World;
 
+	// Base class for a System which operates on entities.
 	class System {
 	public:
-		System() = delete;
-		explicit System(World& world) : m_world(world) {}
+		virtual ~System() = default;
 
-		virtual void Update() = 0;
-
-	protected:
-		World& m_world;
+		virtual void Update(const World& world) = 0;
 	};
 
 } // Engine

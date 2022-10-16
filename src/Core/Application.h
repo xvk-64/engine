@@ -4,6 +4,7 @@
 #include <memory>
 #include "Platform.h"
 #include "World.h"
+#include "Graphics/Renderer.h"
 
 int main();
 
@@ -18,6 +19,7 @@ namespace Engine {
 	// Manages initialisation and cleanup of essential engine subsystems.
 	class Application {
 	public:
+		Application() = delete;
 		explicit Application(const ApplicationConfig& config);
 		virtual ~Application() = default;
 
@@ -27,6 +29,11 @@ namespace Engine {
 
 		// Get the current Window.
 		Window& GetWindow() {return m_platform->GetCurrentWindow();}
+
+		// Get the current Renderer
+		Renderer& GetRenderer() {return *m_renderer;}
+
+		World& GetWorld() {return m_world;}
 
 
 		// Reference to singleton
@@ -40,6 +47,7 @@ namespace Engine {
 
 		const ApplicationConfig& m_config;
 		std::unique_ptr<Platform> m_platform;
+		std::unique_ptr<Renderer> m_renderer;
 		World m_world;
 		bool m_shouldQuit = false;
 

@@ -14,6 +14,7 @@ namespace Engine {
 
 		m_platform = Platform::Create(config.applicationName, config.platformConfig);
 
+		m_renderer = Renderer::Create();
 	}
 
 	void Application::Quit() {
@@ -25,6 +26,9 @@ namespace Engine {
 		m_platform->GetCurrentWindow().windowCloseEvent.AddHandler(onQuitHandler);
 
 		while (!m_shouldQuit) {
+			m_renderer->SetClearColour({0.1f, 0.1f, 0.1f, 1.0f});
+			m_renderer->Clear();
+
 			m_world.Update();
 
 			m_platform->GetCurrentWindow().Update();
