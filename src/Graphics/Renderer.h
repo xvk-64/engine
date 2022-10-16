@@ -14,7 +14,7 @@ namespace Engine {
 		virtual void SetClearColour(const glm::vec4& colour) = 0;
 		virtual void Clear() = 0;
 
-		virtual void DrawArray(const std::unique_ptr<VertexArray>& vertexArray) = 0;
+		virtual void DrawIndexed(const std::unique_ptr<VertexArray>& vertexArray) = 0;
 
 
 		static std::unique_ptr<Renderer> Create();

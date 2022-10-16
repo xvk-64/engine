@@ -54,7 +54,7 @@ namespace Engine {
 		}
 
 		std::size_t GetStride() const {return m_stride;}
-		std::span<const BufferElement> GetOffsets() const {return m_elements;}
+		std::span<const BufferElement> GetElements() const {return m_elements;}
 
 	private:
 		std::size_t m_stride = 0;

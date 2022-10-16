@@ -19,9 +19,18 @@ namespace Engine::OpenGL {
 
 		void AddVertexBuffer(std::unique_ptr<VertexBuffer> vertexBuffer) override;
 
+		void SetIndices(std::span<uint32_t> indices) override;
+
+		size_t GetIndexCount() override {return m_indexCount;}
+
 	private:
 		uint32_t m_handle = 0;
+
+		uint32_t m_indexHandle = 0;
+		size_t m_indexCount = 0;
+
 		uint32_t m_vertexAttributeIndex = 0;
+
 		std::vector<std::unique_ptr<VertexBuffer>> m_vertexBuffers;
 	};
 

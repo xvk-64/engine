@@ -11,7 +11,7 @@ namespace Engine::OpenGL {
 		void SetClearColour(const glm::vec4& colour) override;
 		void Clear() override;
 
-		void DrawArray(const std::unique_ptr<VertexArray>& vertexArray) override;
+		void DrawIndexed(const std::unique_ptr<VertexArray>& vertexArray) override;
 	};
 
 }

@@ -3,6 +3,8 @@
 #include <string>
 #include <glm/glm.hpp>
 #include <memory>
+#include <fstream>
+#include <sstream>
 
 namespace Engine {
 
@@ -24,8 +26,30 @@ namespace Engine {
 		virtual void SetMat4(const std::string& name, const glm::mat4& value) = 0;
 
 
+		static std::unique_ptr<Shader> FromFile(const std::string& vertexPath, const std::string& fragmentPath) {
+			return Create(ReadShaderFile(vertexPath), ReadShaderFile(fragmentPath));
+		}
 		// Defined in implementation
 		static std::unique_ptr<Shader> Create(const std::string& vertexSrc, const std::string& fragmentSrc);
+
+		static std::string ReadShaderFile(const std::string& path) {
+			std::string result;
+
+			std::ifstream in{path, std::ios::in | std::ios::binary};
+			if (in) {
+
+				std::stringstream stream;
+
+				stream << in.rdbuf();
+
+				result = stream.str();
+
+			} else {
+				// Could not open file
+			}
+
+			return result;
+		}
 	};
 
 }

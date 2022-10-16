@@ -16,8 +16,8 @@ namespace Engine::OpenGL {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
-	void Renderer::DrawArray(const std::unique_ptr<VertexArray>& vertexArray) {
+	void Renderer::DrawIndexed(const std::unique_ptr<VertexArray>& vertexArray) {
 		vertexArray->Bind();
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexCount(), GL_UNSIGNED_INT, 0);
 	}
 }
