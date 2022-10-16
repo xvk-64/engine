@@ -5,6 +5,7 @@
 #include "Platform.h"
 #include "World.h"
 #include "Graphics/Renderer.h"
+#include "Graphics/ModelManager.h"
 
 int main();
 
@@ -33,6 +34,8 @@ namespace Engine {
 		// Get the current Renderer
 		Renderer& GetRenderer() {return *m_renderer;}
 
+		ModelManager& GetModelManager() {return m_modelManager;}
+
 		World& GetWorld() {return m_world;}
 
 
@@ -48,6 +51,7 @@ namespace Engine {
 		const ApplicationConfig& m_config;
 		std::unique_ptr<Platform> m_platform;
 		std::unique_ptr<Renderer> m_renderer;
+		ModelManager m_modelManager;
 		World m_world;
 		bool m_shouldQuit = false;
 

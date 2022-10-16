@@ -7,4 +7,11 @@ target_sources(engine
         VertexArray.h
         VertexBuffer.h
         BufferLayout.h
+
+        Mesh.h
+        Mesh.cpp
+        Model.h
+        Model.cpp
+        ModelManager.h
+        ModelManager.cpp
 )

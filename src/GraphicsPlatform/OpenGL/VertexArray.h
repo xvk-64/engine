@@ -10,10 +10,10 @@ namespace Engine::OpenGL {
 		VertexArray();
 		~VertexArray() override;
 
-		void Bind() override {
+		void Bind() const override {
 			glBindVertexArray(m_handle);
 		}
-		void Unbind() override {
+		void Unbind() const override {
 			glBindVertexArray(0);
 		}
 
@@ -21,7 +21,7 @@ namespace Engine::OpenGL {
 
 		void SetIndices(std::span<uint32_t> indices) override;
 
-		size_t GetIndexCount() override {return m_indexCount;}
+		size_t GetIndexCount() const override {return m_indexCount;}
 
 	private:
 		uint32_t m_handle = 0;

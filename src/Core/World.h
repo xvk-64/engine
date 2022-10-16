@@ -10,6 +10,17 @@ namespace Engine {
 	// Holds the current scene
 	class World {
 	public:
+		World() = default;
+
+		// Copy and move
+		World(World& other) = delete;
+		World& operator==(World& other) = delete;
+		World(World&& other) = delete;
+		World& operator==(World&& other) = delete;
+
+		~World() = default;
+
+
 		void SwitchScene(std::unique_ptr<Scene> nextScene) {
 			m_nextScene = std::move(nextScene);
 		}
