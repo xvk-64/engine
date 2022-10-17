@@ -2,6 +2,7 @@
 
 #include "entt/entt.hpp"
 #include "Scene.h"
+#include "ECS/Components.h"
 
 namespace Engine {
 
@@ -27,12 +28,17 @@ namespace Engine {
 
 		void Update();
 
+		void OnViewportResize(uint32_t width, uint32_t height);
+
 
 		entt::registry registry;
 
 	private:
 		std::unique_ptr<Scene> m_currentScene;
 		std::unique_ptr<Scene> m_nextScene;
+
+		uint32_t m_viewportWidth = 0;
+		uint32_t m_viewportHeight = 0;
 	};
 
 }

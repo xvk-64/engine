@@ -2,7 +2,7 @@
 
 namespace Engine {
 
-	void Scene::Update(const World& world) {
+	void Scene::Update(World& world) {
 		for (auto& system : m_systems) {
 			system->Update(world);
 		}

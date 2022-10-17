@@ -11,7 +11,7 @@ namespace Engine {
 	public:
 		virtual ~System() = default;
 
-		virtual void Update(const World& world) = 0;
+		virtual void Update(World& world) = 0;
 	};
 
 } // Engine

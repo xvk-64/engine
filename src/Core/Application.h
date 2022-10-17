@@ -47,6 +47,9 @@ namespace Engine {
 		// Start the main behaviour loop
 		void Run();
 
+		void OnWindowClose();
+		void OnWindowResize(const WindowConfig::WindowSize& size);
+
 
 		const ApplicationConfig& m_config;
 		std::unique_ptr<Platform> m_platform;

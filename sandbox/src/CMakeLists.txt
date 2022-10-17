@@ -4,6 +4,4 @@ target_sources(sandbox
 
         SandboxScene.h
 
-        RenderSystem.h
-
 )

@@ -19,4 +19,16 @@ namespace Engine {
 			m_currentScene->OnAttach(*this);
 		}
 	}
+
+	void World::OnViewportResize(uint32_t width, uint32_t height) {
+		m_viewportWidth = width;
+		m_viewportHeight = height;
+
+		// Update scene cameras
+		auto view = registry.view<CameraComponent>();
+		for (auto entity : view) {
+			auto& cameraComponent = view.get<CameraComponent>(entity);
+			cameraComponent.Camera.SetViewportSize(width, height);
+		}
+	}
 }

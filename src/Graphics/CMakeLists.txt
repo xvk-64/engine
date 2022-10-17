@@ -14,4 +14,7 @@ target_sources(engine
         Model.cpp
         ModelManager.h
         ModelManager.cpp
+
+        Camera.h
+        Camera.cpp
 )

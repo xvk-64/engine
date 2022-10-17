@@ -14,12 +14,12 @@ namespace Engine {
 
 
 		// Called when the scene is attached to a World.
-		virtual void OnAttach(const World& world) = 0;
+		virtual void OnAttach(World& world) = 0;
 		// Called when the scene is detached from a World.
-		virtual void OnDetach(const World& world) = 0;
+		virtual void OnDetach(World& world) = 0;
 
 		// Called every frame
-		void Update(const World& world);
+		void Update(World& world);
 
 	protected:
 		// Register a new system to be updated in this Scene
