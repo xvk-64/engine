@@ -20,6 +20,6 @@ namespace Engine {
 		static std::unique_ptr<Platform> Create(const std::string& title, const PlatformConfig& config);
 
 		virtual Window& GetCurrentWindow() = 0;
-//		virtual Input& GetInput() = 0;
+		virtual Input& GetInput() = 0;
 	};
 }

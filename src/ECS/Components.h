@@ -32,6 +32,12 @@ namespace Engine {
 	};
 
 
+	// Freecam
+	struct FreeCameraComponent {
+		float MoveSpeed = 1.0f;
+	};
+
+
 	// Represents a model that can be rendered.
 	struct ModelComponent {
 		std::shared_ptr<Model> model;

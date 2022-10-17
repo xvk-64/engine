@@ -30,6 +30,8 @@ namespace Engine {
 
 		// Get the current Window.
 		Window& GetWindow() {return m_platform->GetCurrentWindow();}
+		// Get the current Input
+		Input& GetInput() {return m_platform->GetInput();}
 
 		// Get the current Renderer
 		Renderer& GetRenderer() {return *m_renderer;}
@@ -39,8 +41,8 @@ namespace Engine {
 		World& GetWorld() {return m_world;}
 
 
-		// Reference to singleton
-		static Application& Get() {return *s_instance;}
+//		// Reference to singleton
+//		static Application& Get() {return *s_instance;}
 
 	private:
 		friend int ::main();

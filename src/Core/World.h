@@ -3,9 +3,11 @@
 #include "entt/entt.hpp"
 #include "Scene.h"
 #include "ECS/Components.h"
+#include "Application.h"
 
 namespace Engine {
 
+	class Application;
 	class Scene;
 
 	// Holds the current scene
@@ -21,6 +23,8 @@ namespace Engine {
 
 		~World() = default;
 
+
+		Application& GetApplication();
 
 		void SwitchScene(std::unique_ptr<Scene> nextScene) {
 			m_nextScene = std::move(nextScene);
