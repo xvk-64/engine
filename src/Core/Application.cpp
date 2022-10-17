@@ -15,6 +15,8 @@ namespace Engine {
 		}
 
 		s_instance = this;
+
+		m_world.OnViewportResize(config.platformConfig.windowConfig.size.width, config.platformConfig.windowConfig.size.height);
 	}
 
 	void Application::Quit() {

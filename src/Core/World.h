@@ -11,7 +11,7 @@ namespace Engine {
 	// Holds the current scene
 	class World {
 	public:
-		World() = default;
+		World();
 
 		// Copy and move
 		World(World& other) = delete;
@@ -34,6 +34,9 @@ namespace Engine {
 		entt::registry registry;
 
 	private:
+		void OnCameraAdded(entt::registry& registry, entt::entity entity);
+
+
 		std::unique_ptr<Scene> m_currentScene;
 		std::unique_ptr<Scene> m_nextScene;
 

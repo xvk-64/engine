@@ -30,7 +30,9 @@ namespace Sandbox {
 
 			// Create camera
 			auto camera = world.registry.create();
-			world.registry.emplace<Engine::TransformComponent>(camera);
+			auto& transform = world.registry.emplace<Engine::TransformComponent>(camera);
+			transform.Translation = glm::vec3(-2, 2, 1);
+			transform.Rotation = glm::vec3(glm::radians(-45.0f), glm::radians(-45.0f), 0.0f);
 			world.registry.emplace<Engine::CameraComponent>(camera);
 		}
 

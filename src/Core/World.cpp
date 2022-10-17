@@ -2,6 +2,12 @@
 
 namespace Engine {
 
+	World::World() {
+		// When we create a new camera, it needs to have the correct aspect ratio.
+		registry.on_construct<CameraComponent>().connect<&World::OnCameraAdded>(this);
+	}
+
+
 	void World::Update() {
 		if (m_currentScene) {
 			m_currentScene->Update(*this);
@@ -30,5 +36,10 @@ namespace Engine {
 			auto& cameraComponent = view.get<CameraComponent>(entity);
 			cameraComponent.Camera.SetViewportSize(width, height);
 		}
+	}
+
+	void World::OnCameraAdded(entt::registry& registry, entt::entity entity) {
+		auto& cameraComponent = registry.get<CameraComponent>(entity);
+		cameraComponent.Camera.SetViewportSize(m_viewportWidth, m_viewportHeight);
 	}
 }
