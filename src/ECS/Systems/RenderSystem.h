@@ -22,9 +22,9 @@ namespace Engine {
 			{
 				auto view = world.registry.view<TransformComponent, CameraComponent>();
 				for (auto entity : view) {
-					auto [transform, camera] = view.get<TransformComponent, CameraComponent>(entity);
+					auto [transformComponent, cameraComponent] = view.get<TransformComponent, CameraComponent>(entity);
 
-					cameraViewProjection = camera.Camera.GetProjection() * glm::inverse(transform.GetTransformMatrix());
+					cameraViewProjection = cameraComponent.camera.GetProjection() * glm::inverse(transformComponent.GetTransformMatrix());
 				}
 			}
 
@@ -41,7 +41,7 @@ namespace Engine {
 					m_shader->SetMat4("viewProjection", cameraViewProjection);
 
 					// Render all meshes
-					for (auto& mesh: modelComponent.Model->GetMeshes()) {
+					for (auto& mesh: modelComponent.model->GetMeshes()) {
 						renderer.DrawIndexed(mesh->GetVertexArray());
 					}
 				}

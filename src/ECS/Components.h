@@ -28,12 +28,12 @@ namespace Engine {
 
 	// Represents a camera in the world.
 	struct CameraComponent {
-		Camera Camera;
+		Camera camera;
 	};
 
 
 	// Represents a model that can be rendered.
 	struct ModelComponent {
-		std::shared_ptr<Model> Model;
+		std::shared_ptr<Model> model;
 	};
 }

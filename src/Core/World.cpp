@@ -34,12 +34,12 @@ namespace Engine {
 		auto view = registry.view<CameraComponent>();
 		for (auto entity : view) {
 			auto& cameraComponent = view.get<CameraComponent>(entity);
-			cameraComponent.Camera.SetViewportSize(width, height);
+			cameraComponent.camera.SetViewportSize(width, height);
 		}
 	}
 
 	void World::OnCameraAdded(entt::registry& registry, entt::entity entity) {
 		auto& cameraComponent = registry.get<CameraComponent>(entity);
-		cameraComponent.Camera.SetViewportSize(m_viewportWidth, m_viewportHeight);
+		cameraComponent.camera.SetViewportSize(m_viewportWidth, m_viewportHeight);
 	}
 }
