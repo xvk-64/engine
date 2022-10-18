@@ -34,7 +34,7 @@ namespace Engine {
 					transform.Translation += freeCam.MoveSpeed * world.GetDeltaTime() * right;
 				if (input.GetKey(Keycode::Space))
 					transform.Translation += freeCam.MoveSpeed * world.GetDeltaTime() * up;
-				if (input.GetKey(Keycode::LeftShift))
+				if (input.GetKey(Keycode::LeftControl))
 					transform.Translation -= freeCam.MoveSpeed * world.GetDeltaTime() * up;
 
 				// Mouse looking
