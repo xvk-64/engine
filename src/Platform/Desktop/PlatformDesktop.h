@@ -1,8 +1,9 @@
 #pragma once
 
-#include "Core/Platform.h"
-#include "WindowDesktop.h"
 #include "GLFW/glfw3.h"
+#include "Core/Platform.h"
+#include "Core/Time.h"
+#include "WindowDesktop.h"
 #include "InputDesktop.h"
 
 namespace Engine {
@@ -17,6 +18,7 @@ public:
 	Window& GetCurrentWindow() override {return m_window;}
 	Input& GetInput() override {return m_input;}
 
+	void Update() override;
 private:
 		WindowDesktop m_window;
 		InputDesktop m_input;
@@ -25,5 +27,10 @@ private:
 
 	std::unique_ptr<Platform> Platform::Create(const std::string& title, const Platform::PlatformConfig& config) {
 		return std::make_unique<PlatformDesktop>(title, config);
+	}
+
+
+	double Time::GetTime() {
+		return glfwGetTime();
 	}
 }

@@ -6,6 +6,9 @@
 
 namespace Engine {
 
-
+	void PlatformDesktop::Update() {
+		m_window.Update();
+		m_input.Update();
+	}
 
 }

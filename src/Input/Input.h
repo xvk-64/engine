@@ -18,6 +18,13 @@ namespace Engine {
 
 		// Whether the key was released this update.
 		virtual bool GetKeyUp(Keycode keycode) = 0;
+
+
+		// Get current mouse position
+		virtual glm::vec2 GetMousePosition() = 0;
+
+		// Get mouse delta
+		virtual glm::vec2 GetMouseDelta() = 0;
 	};
 
 }

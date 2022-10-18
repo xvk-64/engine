@@ -39,7 +39,7 @@ namespace Engine {
 
 			m_world.Update();
 
-			m_platform->GetCurrentWindow().Update();
+			m_platform->Update();
 		}
 	}
 

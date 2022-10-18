@@ -1,14 +1,18 @@
 #include "World.h"
+#include "Time.h"
 
 namespace Engine {
 
-	World::World(Application& application) : m_application(application) {
+	World::World(Application& application) : m_application(application), m_lastUpdateTime(Time::GetTime()) {
 		// When we create a new camera, it needs to have the correct aspect ratio.
 		registry.on_construct<CameraComponent>().connect<&World::OnCameraAdded>(this);
 	}
 
 
 	void World::Update() {
+		m_deltaTime = Time::GetTime() - m_lastUpdateTime;
+		m_lastUpdateTime = Time::GetTime();
+
 		if (m_currentScene) {
 			m_currentScene->Update(*this);
 		}

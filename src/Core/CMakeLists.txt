@@ -15,4 +15,6 @@ target_sources(engine
 
         Scene.h
         Scene.cpp
+
+        Time.h
     )

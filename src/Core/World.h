@@ -34,6 +34,8 @@ namespace Engine {
 
 		void OnViewportResize(uint32_t width, uint32_t height);
 
+		float GetDeltaTime() const {return m_deltaTime;}
+
 
 		entt::registry registry;
 
@@ -48,6 +50,9 @@ namespace Engine {
 
 		uint32_t m_viewportWidth = 0;
 		uint32_t m_viewportHeight = 0;
+
+		double m_lastUpdateTime;
+		double m_deltaTime = 0;
 	};
 
 }

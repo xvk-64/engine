@@ -34,7 +34,10 @@ namespace Engine {
 
 	// Freecam
 	struct FreeCameraComponent {
-		float MoveSpeed = 1.0f;
+		float MoveSpeed = 3.0f;
+		float LookSpeed = 0.1f;
+		bool InvertY = true;
+		bool InvertX = true;
 	};
 
 

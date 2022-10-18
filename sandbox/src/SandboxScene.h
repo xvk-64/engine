@@ -3,6 +3,7 @@
 #include "Core/Scene.h"
 #include "ECS/Systems/RenderSystem.h"
 #include "ECS/Components.h"
+#include "ECS/Systems/FreeCameraSystem.h"
 
 namespace Sandbox {
 
@@ -10,6 +11,7 @@ namespace Sandbox {
 	public:
 		SandboxScene() {
 			RegisterSystem<Engine::RenderSystem>();
+			RegisterSystem<Engine::FreeCameraSystem>();
 		}
 
 		void OnAttach(Engine::World& world) override {
@@ -34,6 +36,7 @@ namespace Sandbox {
 			transform.Translation = glm::vec3(-2, 2, 1);
 			transform.Rotation = glm::vec3(glm::radians(-45.0f), glm::radians(-45.0f), 0.0f);
 			world.registry.emplace<Engine::CameraComponent>(camera);
+			world.registry.emplace<Engine::FreeCameraComponent>(camera);
 		}
 
 		void OnDetach(Engine::World& world) override {
