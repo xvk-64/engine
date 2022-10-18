@@ -2,7 +2,7 @@
 
 namespace Engine {
 
-	World::World() {
+	World::World(Application& application) : m_application(application) {
 		// When we create a new camera, it needs to have the correct aspect ratio.
 		registry.on_construct<CameraComponent>().connect<&World::OnCameraAdded>(this);
 	}

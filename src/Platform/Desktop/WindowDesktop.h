@@ -16,7 +16,7 @@ namespace Engine {
 		WindowDesktop(WindowDesktop&& other) = delete;
 		WindowDesktop& operator=(WindowDesktop&& other) = delete;
 
-		~WindowDesktop();
+		~WindowDesktop() override;
 
 
 		void Clear() override;

@@ -16,7 +16,7 @@ namespace Sandbox {
 			std::cout << "Attached scene!" << std::endl;
 
 
-			auto& modelManager = Engine::Application::Get().GetModelManager();
+			auto& modelManager = world.GetApplication().GetModelManager();
 
 			// Create cube
 			auto cubeMesh = modelManager.GetStaticMesh("Cube");

@@ -13,7 +13,7 @@ namespace Engine {
 		}
 
 		void Update(World& world) override {
-			auto& renderer = Application::Get().GetRenderer();
+			auto& renderer = world.GetApplication().GetRenderer();
 
 			m_shader->Bind();
 

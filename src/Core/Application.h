@@ -11,6 +11,9 @@ int main();
 
 namespace Engine {
 
+	class World;
+
+
 	// Configuration for Application class
 	struct ApplicationConfig {
 		std::string applicationName;
@@ -61,7 +64,7 @@ namespace Engine {
 		bool m_shouldQuit = false;
 
 
-		static Application* s_instance;
+//		static Application* s_instance;
 		// Defined in client
 		static std::unique_ptr<Application> CreateApplication();
 	};

@@ -3,7 +3,6 @@
 #include "entt/entt.hpp"
 #include "Scene.h"
 #include "ECS/Components.h"
-#include "Application.h"
 
 namespace Engine {
 
@@ -13,7 +12,8 @@ namespace Engine {
 	// Holds the current scene
 	class World {
 	public:
-		World();
+		World() = delete;
+		explicit World(Application& application);
 
 		// Copy and move
 		World(World& other) = delete;
@@ -24,7 +24,7 @@ namespace Engine {
 		~World() = default;
 
 
-		Application& GetApplication();
+		Application& GetApplication() {return m_application;}
 
 		void SwitchScene(std::unique_ptr<Scene> nextScene) {
 			m_nextScene = std::move(nextScene);
@@ -40,6 +40,8 @@ namespace Engine {
 	private:
 		void OnCameraAdded(entt::registry& registry, entt::entity entity);
 
+
+		Application& m_application;
 
 		std::unique_ptr<Scene> m_currentScene;
 		std::unique_ptr<Scene> m_nextScene;

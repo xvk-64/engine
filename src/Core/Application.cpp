@@ -2,19 +2,20 @@
 
 namespace Engine {
 
-	Application* Application::s_instance = nullptr;
+//	Application* Application::s_instance = nullptr;
 
 	Application::Application(const ApplicationConfig& config)
 	: m_config(config),
 	m_renderer{Renderer::Create()},
 	m_platform{Platform::Create(config.applicationName, config.platformConfig)},
+	m_world{*this},
 	m_modelManager{}
 	{
-		if (s_instance != nullptr) {
-			// TODO: Put some assert or something here
-		}
-
-		s_instance = this;
+//		if (s_instance != nullptr) {
+//			// TODO: Put some assert or something here
+//		}
+//
+//		s_instance = this;
 
 		m_world.OnViewportResize(config.platformConfig.windowConfig.size.width, config.platformConfig.windowConfig.size.height);
 	}

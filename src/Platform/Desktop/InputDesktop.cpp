@@ -5,9 +5,7 @@
 namespace Engine {
 
 	bool InputDesktop::GetKey(Keycode keycode) {
-		auto& window = dynamic_cast<WindowDesktop&>(Application::Get().GetWindow());
-
-		return glfwGetKey(window.GetWindowHandle(), keycode) == GLFW_PRESS;
+		return glfwGetKey(m_windowHandle, keycode) == GLFW_PRESS;
 	}
 
 	bool InputDesktop::GetKeyDown(Keycode keycode) {
