@@ -21,12 +21,18 @@ namespace Engine {
 	};
 
 	// Manages initialisation and cleanup of essential engine subsystems.
-	class Application {
+	class Application : public Singleton<Application> {
 	public:
-		Application() = delete;
+		Application() : Application({.applicationName = "Sandbox"}) {}
 		explicit Application(const ApplicationConfig& config);
 		virtual ~Application() = default;
 
+		void Init() override;
+
+		void Shutdown() override;
+	private:
+
+	public:
 
 		// Quit the application.
 		void Quit();

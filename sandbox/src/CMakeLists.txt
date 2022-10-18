@@ -1,6 +1,6 @@
 target_sources(sandbox
     PRIVATE
-        Sandbox.cpp
+        Sandbox.h
 
         SandboxScene.h
 

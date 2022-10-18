@@ -3,7 +3,7 @@ target_sources(engine
         Application.h
         Application.cpp
 
-        EntryPoint.h
+        EntryPoint.cpp
 
         Platform.cpp
         Platform.h

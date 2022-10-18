@@ -53,4 +53,12 @@ namespace Engine {
 
 		m_world.OnViewportResize(size.width, size.height);
 	}
+
+	void Application::Init() {
+
+	}
+
+	void Application::Shutdown() {
+
+	}
 } // Engine
