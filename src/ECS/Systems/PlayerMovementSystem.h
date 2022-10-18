@@ -20,6 +20,18 @@ namespace Engine {
 				auto forward = -glm::vec3(glm::sin(transformComponent.Rotation.y), 0.0f, glm::cos(transformComponent.Rotation.y));
 				auto right = glm::cross(forward, glm::vec3(0.0f, 1.0f, 0.0f));
 
+				// Check if switching to flying
+				if (input.GetKey(Keycode::GraveAccent)) {
+					if (!playerMovementComponent.flyCooldown) {
+						playerMovementComponent.flyCooldown = true;
+						playerMovementComponent.isFlying = !playerMovementComponent.isFlying;
+
+						physicsComponent.hasGravity = !playerMovementComponent.isFlying;
+						physicsComponent.canCollide = !playerMovementComponent.isFlying;
+					}
+				} else
+					playerMovementComponent.flyCooldown = false;
+
 				auto acceleration = playerMovementComponent.isFlying
 						? playerMovementComponent.flyAcceleration
 						: (physicsComponent.touching.y
@@ -38,7 +50,10 @@ namespace Engine {
 					direction += right;
 
 				if (playerMovementComponent.isFlying) {
-
+					if (input.GetKey(Keycode::Space))
+						direction += glm::vec3(0.0f, 1.0f, 0.0f);
+					if (input.GetKey(Keycode::LeftControl))
+						direction -= glm::vec3(0.0f, 1.0f, 0.0f);
 				} else {
 					if (input.GetKey(Keycode::Space) && physicsComponent.touching.y)
 						// Jump if on the ground

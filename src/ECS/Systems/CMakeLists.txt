@@ -7,4 +7,6 @@ target_sources(engine
         PhysicsSystem.h
 
         PlayerMovementSystem.h
+
+        CubeShooterSystem.h
 )

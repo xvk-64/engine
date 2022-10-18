@@ -13,8 +13,8 @@ namespace Engine {
 
 
 		bool GetKey(Keycode keycode) override;
-		bool GetKeyDown(Keycode keycode) override;
-		bool GetKeyUp(Keycode keycode) override;
+
+		bool GetMouseButton(Mousecode mousecode) override;
 
 		glm::vec2 GetMousePosition() override {return m_mousePosition;}
 

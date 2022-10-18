@@ -20,12 +20,8 @@ namespace Engine {
 		return glfwGetKey(m_windowHandle, keycode) == GLFW_PRESS;
 	}
 
-	bool InputDesktop::GetKeyDown(Keycode keycode) {
-		return false;
-	}
-
-	bool InputDesktop::GetKeyUp(Keycode keycode) {
-		return false;
+	bool InputDesktop::GetMouseButton(Mousecode mousecode) {
+		return glfwGetMouseButton(m_windowHandle, mousecode) == GLFW_PRESS;
 	}
 
 	void InputDesktop::Update() {

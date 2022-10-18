@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Keycode.h"
+#include "Mousecode.h"
 
 namespace Engine {
 
@@ -13,11 +14,7 @@ namespace Engine {
 		// Whether the key is down or not
 		virtual bool GetKey(Keycode keycode) = 0;
 
-		// Whether the key was pressed this update
-		virtual bool GetKeyDown(Keycode keycode) = 0;
-
-		// Whether the key was released this update.
-		virtual bool GetKeyUp(Keycode keycode) = 0;
+		virtual bool GetMouseButton(Mousecode mousecode) = 0;
 
 
 		// Get current mouse position

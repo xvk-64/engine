@@ -67,13 +67,21 @@ namespace Engine {
 	struct PlayerMovementComponent {
 		float groundAcceleration = 60.0f;
 		float airAcceleration = 8.0f;
-		float flyAcceleration = 800.0f;
+		float flyAcceleration = 100.0f;
 		float jumpHeight = 1.1f;
 
 		bool isFlying = false;
+		bool flyCooldown = false;
 
 		float lookSpeed = 0.1f;
 		bool invertY = true;
 		bool invertX = true;
+	};
+
+
+	// Shooting cubes
+	struct CubeShooterComponent {
+		float velocity = 20.0f;
+		bool inCooldown = false;
 	};
 }

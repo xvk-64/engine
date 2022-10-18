@@ -6,6 +6,7 @@
 #include "ECS/Systems/FreeCameraSystem.h"
 #include "ECS/Systems/PhysicsSystem.h"
 #include "ECS/Systems/PlayerMovementSystem.h"
+#include "ECS/Systems/CubeShooterSystem.h"
 
 namespace Sandbox {
 
@@ -16,6 +17,7 @@ namespace Sandbox {
 			RegisterSystem<Engine::FreeCameraSystem>();
 			RegisterSystem<Engine::PhysicsSystem>();
 			RegisterSystem<Engine::PlayerMovementSystem>();
+			RegisterSystem<Engine::CubeShooterSystem>();
 		}
 
 		void OnAttach(Engine::World& world) override {
@@ -32,14 +34,18 @@ namespace Sandbox {
 
 			// Create floor
 			auto floorEntity = world.registry.create();
+
 			auto& floorTransform = world.registry.emplace<Engine::TransformComponent>(floorEntity);
-			floorTransform.Scale = glm::vec3(20.0f, 1.0f, 20.0f);
+			floorTransform.Scale = glm::vec3(30.0f, 1.0f, 30.0f);
+
 			world.registry.emplace<Engine::ModelComponent>(floorEntity, model);
+
 			auto& floorPhysics = world.registry.emplace<Engine::PhysicsComponent>(floorEntity);
 			floorPhysics.hasGravity = false;
 			floorPhysics.aabb.HalfWidths = floorTransform.Scale / 2.0f;
 
 
+			// Create cube
 			for (int i = 0; i < 1; ++i) {
 				auto cube2 = world.registry.create();
 				auto& tr = world.registry.emplace<Engine::TransformComponent>(cube2);
@@ -70,6 +76,8 @@ namespace Sandbox {
 			playerPhysics.aabb.HalfWidths = glm::vec3(0.2f, 1.25f, 0.2f);
 
 			world.registry.emplace<Engine::PlayerMovementComponent>(playerEntity);
+
+			world.registry.emplace<Engine::CubeShooterComponent>(playerEntity);
 
 		}
 
