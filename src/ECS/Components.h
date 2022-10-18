@@ -5,6 +5,7 @@
 #include <glm/gtx/quaternion.hpp>
 #include "Graphics/Camera.h"
 #include "Graphics/Model.h"
+#include "Utils/AABB.h"
 
 namespace Engine {
 	// Holds the translation, rotation and scale.
@@ -44,5 +45,35 @@ namespace Engine {
 	// Represents a model that can be rendered.
 	struct ModelComponent {
 		std::shared_ptr<Model> model;
+	};
+
+
+	// Physics
+	struct PhysicsComponent {
+		// Current velocity
+		glm::vec3 velocity = glm::vec3(0.0f);
+
+		// Has the axis collided on this axis?
+		glm::bvec3 touching = glm::bvec3(false);
+
+		AABB aabb;
+
+		bool hasGravity = true;
+		bool canCollide = true;
+	};
+
+
+	// Movement controlled by a player
+	struct PlayerMovementComponent {
+		float groundAcceleration = 60.0f;
+		float airAcceleration = 8.0f;
+		float flyAcceleration = 800.0f;
+		float jumpHeight = 1.1f;
+
+		bool isFlying = false;
+
+		float lookSpeed = 0.1f;
+		bool invertY = true;
+		bool invertX = true;
 	};
 }

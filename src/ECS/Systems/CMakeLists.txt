@@ -3,4 +3,8 @@ target_sources(engine
         RenderSystem.h
 
         FreeCameraSystem.h
+
+        PhysicsSystem.h
+
+        PlayerMovementSystem.h
 )

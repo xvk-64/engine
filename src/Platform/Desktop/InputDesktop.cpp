@@ -2,6 +2,7 @@
 #include "WindowDesktop.h"
 #include "Core/Application.h"
 
+
 namespace Engine {
 	InputDesktop::InputDesktop(GLFWwindow* windowHandle) : m_windowHandle(windowHandle) {
 		double x, y;
@@ -9,7 +10,6 @@ namespace Engine {
 		glm::vec2 pos{x, y};
 
 		m_mousePosition = pos;
-
 
 		// Cursor lock
 		glfwSetInputMode(m_windowHandle, GLFW_CURSOR, GLFW_CURSOR_DISABLED);

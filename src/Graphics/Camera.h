@@ -21,6 +21,8 @@ namespace Engine {
 			return m_projection;
 		}
 
+		void SetFOV(float FOV) {m_FOV = FOV; RecalculateProjection();}
+
 	private:
 		// Recalculate the projection matrix.
 		void RecalculateProjection() {
