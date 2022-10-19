@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include "Core/Scene.h"
 #include "ECS/Systems/RenderSystem.h"
 #include "ECS/Components.h"

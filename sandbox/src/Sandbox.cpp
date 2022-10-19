@@ -1,4 +1,3 @@
-#include "Core/EntryPoint.h"
 #include "SandboxScene.h"
 
 namespace Sandbox {
